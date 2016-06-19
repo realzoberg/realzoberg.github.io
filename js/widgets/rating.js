@@ -13,16 +13,13 @@
  * Rating.currentRating()                         getter
  * Rating.currentRating(value)                    setter
  */
-function Rating(container, prefix, currentRating, classPrefix) {
+function Rating(container, prefix, classPrefix) {
     var _maxRating = 5,
-        _minRating = 0;
+        _minRating = 0,
+        currentRating = 0;
 
-    currentRating = currentRating || 0;
+    prefix = prefix || "";
     classPrefix = classPrefix || "";
-
-    if (currentRating > _maxRating || currentRating < _minRating) {
-        throw Error("Rating widget: currentRating is too low or too high.");
-    }
 
     function createElement() {
         var element = document.createElement("span");
@@ -65,8 +62,6 @@ function Rating(container, prefix, currentRating, classPrefix) {
         _currentRating = currentRating,
         _element = createElement();
 
-    _element = _container.appendChild(_element);
-
     var rating = {
         currentRating: _currentRating
     };
@@ -84,6 +79,15 @@ function Rating(container, prefix, currentRating, classPrefix) {
         return rating;
     };
 
-    updateDOM();
+    rating.init = function() {
+        if(!container) {
+            throw Error("Rating widget: Wrong container.");
+        }
+
+        _element = container.appendChild(_element);
+        updateDOM();
+        return rating;
+    };
+
     return rating;
 }
