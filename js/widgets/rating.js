@@ -4,28 +4,30 @@
  *
  * @param      HTML DOM Node Element object       container      Container for a widget.
  * @param      {string}                           prefix         Prefix for widget element ids.
- * @param      {(number)}                         currentRating  Initial rating in [0,5] (default 0).
+ * @param      {(number)}                         currentRating  (optional) Initial rating in [0,5] 
+ *                                                               (default 0).
+ * @param      {string}                           classPrefix    (optional) Prefix for widget
+ *                                                               block class (default none).
  * @return     {(Object)}                         Rating Object
  * 
  * Rating.currentRating()                         getter
  * Rating.currentRating(value)                    setter
  */
-function Rating(container, prefix, currentRating) {
+function Rating(container, prefix, currentRating, classPrefix) {
     var _maxRating = 5,
         _minRating = 0;
 
-    if (currentRating === undefined) {
-        currentRating = 0;
-    }
+    currentRating = currentRating || 0;
+    classPrefix = classPrefix || "";
 
     if (currentRating > _maxRating || currentRating < _minRating) {
         throw Error("Rating widget: currentRating is too low or too high.");
     }
 
     function createElement() {
-        var element = document.createElement('span');
-        element.className = 'rating';
-        var template = '<span class="rating"> \
+        var element = document.createElement("span");
+        element.className = classPrefix + "rating";
+        var template = '\
                 <input id="#prefix#__rating__input_5" type="radio" value="5" name="#prefix#-group"> \
                 <label for="#prefix#__rating__input_5" class="rating__label"></label> \
                 <input id="#prefix#__rating__input_4" type="radio" value="4" name="#prefix#-group"> \
@@ -35,9 +37,8 @@ function Rating(container, prefix, currentRating) {
                 <input id="#prefix#__rating__input_2" type="radio" value="2" name="#prefix#-group"> \
                 <label for="#prefix#__rating__input_2" class="rating__label"></label> \
                 <input id="#prefix#__rating__input_1" type="radio" value="1" name="#prefix#-group"> \
-                <label for="#prefix#__rating__input_1" class="rating__label"></label> \
-            </span>';
-        element.innerHTML = template.replace(/#prefix#/g, prefix)
+                <label for="#prefix#__rating__input_1" class="rating__label"></label>';
+        element.innerHTML = template.replace(/#prefix#/g, prefix);
 
         return element;
     }
@@ -45,7 +46,7 @@ function Rating(container, prefix, currentRating) {
     function resetDOM() {
         var checkedInput = _element.querySelectorAll("input:checked");
         if (checkedInput) {
-            checkedInput.forEach(function(input) {
+            Array.prototype.forEach.call(checkedInput, function(input) {
                 input.removeAttribute("checked");
             });
         }
@@ -54,9 +55,9 @@ function Rating(container, prefix, currentRating) {
     function updateDOM() {
         resetDOM();
         var inputToBeChecked =
-            _element.querySelectorAll("input[value='" + _currentRating + "']");
-        if (inputToBeChecked && inputToBeChecked[0]) {
-            inputToBeChecked[0].setAttribute("checked", "checked");
+            _element.querySelector("input[value='" + _currentRating + "']");
+        if (inputToBeChecked) {
+            inputToBeChecked.setAttribute("checked", "checked");
         }
     }
 

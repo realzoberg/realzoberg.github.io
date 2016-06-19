@@ -25,8 +25,8 @@
     .rating-on-icon;
   }
 
-  .rating__label:hover:before,
-  .rating__label:hover ~ label:before,
+  &__label:hover:before,
+  &__label:hover ~ label:before,
   &:not(:hover) > :checked ~ label:before {
     opacity : 1;
   }
@@ -42,4 +42,15 @@
   width           : 18px;
   height          : 16px;
   background      : url('../../build/images/rating/on.png');
+}
+
+.other-rating {
+  .rating;
+  .rating-on-icon {
+    background      : url('../../build/images/rating/on-black.png');
+  }
+
+  .rating__label:before {
+    .rating-on-icon
+  }
 }
