@@ -34,27 +34,27 @@
 
     var container1 = document.getElementById("test-container-1");
     var rating1 = Rating(container1, "test-container-1").init();
-    equals(0, rating1.currentRating(), "currentRating() failed");
+    equals(0, rating1.currentRating(), "currentRating() test failed");
 
     var container2 = document.getElementById("test-container-2");
     var rating2 = Rating(container2, "test-container-2").init();
-    equals(0, rating2.currentRating(), "currentRating() failed");
+    equals(0, rating2.currentRating(), "currentRating() test failed");
     rating2.currentRating(2);
-    equals(2, rating2.currentRating(), "currentRating() failed");
+    equals(2, rating2.currentRating(), "currentRating() test failed");
     rating2.currentRating(0);
-    equals(0, rating2.currentRating(), "currentRating() failed");
+    equals(0, rating2.currentRating(), "currentRating() test failed");
 
     var container3 = document.getElementById("test-container-3");
     var rating3 = Rating(container3, "test-container-3").init();
-    equals(0, rating3.currentRating(), "currentRating() failed");
+    equals(0, rating3.currentRating(), "currentRating() test failed");
     rating3.currentRating(0);
-    equals(0, rating3.currentRating(), "currentRating() failed");
+    equals(0, rating3.currentRating(), "currentRating() test failed");
     rating3.currentRating(5);
-    equals(5, rating3.currentRating(), "currentRating() failed");
+    equals(5, rating3.currentRating(), "currentRating() test failed");
 
     var container4 = document.getElementById("test-container-4");
     var rating4 = Rating(container4, "test-container-4", "other-").init();
-    equals(0, rating4.currentRating(), "currentRating() failed");
+    equals(0, rating4.currentRating(), "currentRating() test failed");
 
     var container5 = document.getElementById("test-container-5");
     try {

@@ -33,7 +33,7 @@ module.exports = function(grunt) {
               paths: ['assets/css']
             },
             files: {
-              'build/css/production.css': 'less/widgets/*.less'
+              'build/css/production.css': 'less/index.less'
             }
           },
           production: {
@@ -45,7 +45,7 @@ module.exports = function(grunt) {
               ]
             },
             files: {
-              'build/css/production.css': 'less/widgets/*.less'
+              'build/css/production.css': 'less/index.less'
             }
           }
         }
