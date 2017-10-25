@@ -3,18 +3,25 @@ rvm:
   - 2.4.1
 script:
   - bundle exec jekyll build
+  - rm -rf -- !(_site)
+  - mv _site/* ./
+  - rm -rf _site
+  - git add .
+  - git remote add deploy https://$GITHUB_TOKEN:x-oauth-basic@github.com/$GITHUB_USER/$GITHUB_USER.github.io.git
+  - git commit -m 'Deploy'
+  - git push -f deploy HEAD:master
 branches:
   except:
-  - master
-deploy:
-    provider: pages
-    github_token: $GITHUB_TOKEN
-    name: $GITHUB_USER
-    email: $GITHUB_EMAIL
-    skip_cleanup: true
-    local_dir: _site/
-    on:
-      tags: false
-      branch: add-site
-      target_branch: master
-      repo: realzoberg/realzoberg.github.io
+    - master
+# deploy:
+#     provider: pages
+#     github_token: $GITHUB_TOKEN
+#     name: $GITHUB_USER
+#     email: $GITHUB_EMAIL
+#     skip_cleanup: true
+#     local_dir: _site/
+#     on:
+#       tags: false
+#       branch: add-site
+#       target_branch: master
+#       repo: realzoberg/realzoberg.github.io
