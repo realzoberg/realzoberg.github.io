@@ -1,3 +1,15 @@
+---
+layout: default
+title:  Permalink
+cover:  cover.jpg
+
+namespace:     team
+permalink:     /team/
+permalink_ru:  /team_ru/
+---
+
+
+
 <div class="content" id="home">
   <div id="sidebar-button">
     <img src="/images/sidebar-button.png">
@@ -16,11 +28,7 @@
       <!-- Adds links to other languages on the post -->
       {% for lang in site.languages %}
         {% unless site.lang == lang %}
-          {% if lang == site.default_lang %}
-            <a href="{{ site.baseurl_root }}{{ page.url }}" >{% t langs.{{ lang }} %}</a>
-          {% else %}
-            <a href="{{ site.baseurl_root }}/{{ lang }}{{ page.url }}" >{% t langs.{{ lang }} %}</a>
-          {% endif %}
+          <a href="{% tl {{ page.namespace }} {{ lang }} %}" >{% t langs.{{ lang }} %}</a>
           
           {% assign next = forloop.index | plus: 1 %}
           
@@ -31,11 +39,8 @@
         {% endunless %}
       {% endfor %}
     </div>
-
-    <p>{% t pages.includeexample %}: <b>{{ include.param }}</b></p>
-
-    {{ content }}
-
-    <br>
+    
+    {% tf permalink.md %}
   </div>
 </div>
+

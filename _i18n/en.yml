@@ -8,6 +8,5 @@ langs:
   en: English
 pages:
   example: example
-  includeexample: The following text is a Jekyll include liquid tag parameter
 titles:
-  pagination: Pagination
+  pagination: All posts

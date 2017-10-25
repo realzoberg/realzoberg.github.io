@@ -1,12 +1,12 @@
 global:
   tagline: Русский
-  about: Инфо
+  about: О блоге
   twitter: Twitter
   github: GitHub
 langs:
   ru: Русский
-  en: Russian
+  en: Английский
 pages:
   example: Пример
 titles:
-  pagination: Страницы
+  pagination: Все посты

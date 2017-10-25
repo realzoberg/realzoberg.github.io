@@ -1,30 +1,24 @@
+name: Flex
 markdown: redcarpet
-higlighter: pygments
+highlighter: pygments
 exclude: ["LICENSE.txt", "README.md"]
 
 baseurl: ""
 permalink: /:title/
 
+
+# Paginate
 paginate: 1
 paginate_path: "/pagination/page:num/"
 
-gems:
+
+# Plugins
+gems: 
   - jekyll-multiple-languages-plugin
   - jekyll-paginate
-  - jekyll-admin
 
-languages: ["en", "ru"]
 
-title: "Max Strakhov Data Science Blog"
-description: "Blog about data science and machine learning"
-url: "https://realzoberg.github.io"
-timezone: Europe/Moscow
-future: false
+# jekyll-multiple-languages-plugin settings:
+languages: ["ru", "en"]
+
 exclude_from_localizations: ["javascript", "images", "css", "scripts", "favicon.ico"]
-#jekyll_admin:
-#  hidden_links:
-#    - posts
-#    - pages
-#    - staticfiles
-#    - datafiles
-#    - configuration
