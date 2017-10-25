@@ -1,14 +1,8 @@
-<head>
-    <link rel="stylesheet" href="build/css/production.css"/>
-    <script src="build/js/production.js"></script>
-</head>
-<body>
-    <div id="test-container-1">
-    </div>
-    <div id="test-container-2">
-    </div>
-    <div id="test-container-3">
-    </div>
-    <div id="test-container-4">
-    </div>
-</body>
+---
+layout: default
+title: Max Strakhov data science Blog
+---
+
+{% assign page = site.posts.first %}
+{% assign content = page.content %}
+{% include post.html param="Include parameter value from index.html"%}

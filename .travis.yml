@@ -1,0 +1,17 @@
+language: ruby
+rvm:
+  - 2.4.1
+script:
+  - bundle exec jekyll build
+deploy:
+    provider: pages
+    github_token: $GITHUB_TOKEN
+    name: $GITHUB_USER
+    email: $GITHUB_EMAIL
+    skip_cleanup: true
+    local_dir: _site/
+    on:
+      tags: false
+      branch: add-site
+      target_branch: master
+      repo: realzoberg/realzoberg.github.io

@@ -1,0 +1,12 @@
+global:
+  tagline: Русский
+  about: Инфо
+  twitter: Twitter
+  github: GitHub
+langs:
+  ru: Русский
+  en: Russian
+pages:
+  example: Пример
+titles:
+  pagination: Страницы
