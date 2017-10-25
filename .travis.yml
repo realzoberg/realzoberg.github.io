@@ -3,6 +3,9 @@ rvm:
   - 2.4.1
 script:
   - bundle exec jekyll build
+branches:
+  except:
+  - master
 deploy:
     provider: pages
     github_token: $GITHUB_TOKEN
