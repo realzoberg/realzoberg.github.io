@@ -1,12 +1,10 @@
 global:
   tagline: Русский
   about: О блоге
-  twitter: Twitter
   github: GitHub
+  github_link: https://github.com/Monnoroch
 langs:
   ru: Русский
-  en: Английский
-pages:
-  example: Пример
+  en: English
 titles:
   pagination: Все посты

@@ -16,14 +16,14 @@
       <link rel="stylesheet" href="/css/responsive.css">
 
       <!-- Google Fonts -->
-      <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700' rel='stylesheet' type='text/css'>
-      <link href='http://fonts.googleapis.com/css?family=Raleway:300,400,700' rel='stylesheet' type='text/css'>
+      <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700' rel='stylesheet' type='text/css'>
+      <link href='https://fonts.googleapis.com/css?family=Raleway:300,400,700' rel='stylesheet' type='text/css'>
   </head>
   <body>
     <div class="site">
       <div class="sidebar" id="sidebar">
         <div class="header">
-          {% if site.lang == "it" %}
+          {% if site.lang == "en" %}
             <h1 class="title"><a href="{{ site.baseurl_root }}/"><img id="logo" src="/images/logo.png"></a></h1>
           {% else %}
             <h1 class="title"><a href="{{ site.baseurl_root }}/{{ site.lang }}"><img id="logo" src="/images/logo.png"></a></h1>
@@ -39,27 +39,12 @@
                 </a>
               </li>
             {% endfor %}
-            {% if site.pages.size > 1 %}
-              <hr>
-              {% for page in site.pages %}
-                {% if page.title != "Home" %}
-                  {% unless page.url contains "page2" or page.url contains "page3" %}
-                    <li class="post-link">
-                      <a class="post-title" href="{{ site.baseurl }}{{ page.url }}">
-                        {{ page.title }} - {{ site.lang }}
-                      </a>
-                    </li>
-                  {% endunless %}
-                {% endif %}
-              {% endfor %}
-            {% endif %}
           </ul>
         </div>
         <div class="footer">
           <span id="footer-links">
-            <a href="" class="footer-link">{% t global.about %}</a> <span class="separator">&bull;</span>
-            <a href="" class="footer-link">{% t global.twitter %}</a> <span class="separator">&bull;</span>
-            <a href="" class="footer-link">{% t global.github %}</a>
+            <a href="{{ site.baseurl }}" class="footer-link">{% t global.about %}</a> <span class="separator">&bull;</span>
+            <a href="{% t global.github_link %}" class="footer-link">{% t global.github %}</a>
           </span>
         </div>
         {% tf footer.md %}
